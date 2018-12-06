@@ -4,4 +4,4 @@ test
 
 ## Projects
 
-[GAN Image Colorization with Controlled Parameters](projects/GAN-Image-Colorization-with-Controlled-Parameters/index.md)
+[GAN Image Colorization with Controlled Parameters](projects/GAN-Image-Colorization-with-Controlled-Parameters/index.html)
