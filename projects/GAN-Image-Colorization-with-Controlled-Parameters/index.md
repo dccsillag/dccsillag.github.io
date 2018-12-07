@@ -72,7 +72,7 @@ $$\vdots$$
 
 ## Training
 
-Download the code [here](Code);
+Download the code [here](https://github.com/dccsillag/dccsillag.github.io/tree/master/projects/GAN-Image-Colorization-with-Controlled-Parameters/Code);
 
 To train the model under the CIFAR-10 dataset, use the following command:
 
