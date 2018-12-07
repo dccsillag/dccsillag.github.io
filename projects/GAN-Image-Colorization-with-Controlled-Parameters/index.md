@@ -64,10 +64,10 @@ $$\vdots$$
 ## Environment Setup
 
  * Google Colab
-   - Tesla K80 GPU
-   - 12 hours of usage before timeout
-   - Ability to run multiple instances at once (max. 10);
-   - Quirkiness;
+    - Tesla K80 GPU
+    - 12 hours of usage before timeout
+    - Ability to run multiple instances at once (max. 10);
+    - Quirkiness;
  * Tensorflow
 
 ## Training
