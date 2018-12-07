@@ -1,5 +1,7 @@
 # GAN Image Colorization with Controlled Parameters
 
+Based off of [github.com/ImagingLab/Colorizing-with-GANs](https://github.com/ImagingLab/Colorizing-with-GANs)
+
 ## Task
 
 Given a grayscale (b&w) image and a set of parameters as the input, automatically generate a colorized image respecting these parameters as the output.
@@ -67,6 +69,27 @@ $$\vdots$$
   - Ability to run multiple instances at once (max. 10);
   - Quirkiness;
  + Tensorflow
+
+## Training
+
+Download the code [here](Code);
+
+To train the model under the CIFAR-10 dataset, use the following command:
+
+```
+python train.py \
+    --seed 100 \
+    --dataset cifar10 \
+    --dataset-path ./dataset/cifar10 \
+    --checkpoints-path ./checkpoints \
+    --batch-size 128 \
+    --epochs 200 \
+    --lr 3e-4 \
+    --lr-decay-steps 1e4 \
+    --augment True
+```
+
+and add other flags at the end, such as `--desired-saturation 1`, `--saturation-weight 20`, `--desired-hue 0.6`, etc.
 
 ## Results
 
