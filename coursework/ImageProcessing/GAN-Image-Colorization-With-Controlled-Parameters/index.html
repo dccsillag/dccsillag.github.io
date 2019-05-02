@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="pandoc.css" type="text/css" />
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+</head>
+<body>
+<h1 id="gan-image-colorization-with-controlled-parameters">GAN Image Colorization with Controlled Parameters</h1>
+<p>Based off of <a href="https://github.com/ImagingLab/Colorizing-with-GANs">github.com/ImagingLab/Colorizing-with-GANs</a></p>
+<h2 id="task">Task</h2>
+<p>Given a grayscale (b&amp;w) image and a set of parameters as the input, automatically generate a colorized image respecting these parameters as the output.</p>
+<div class="figure">
+<img src="./images/zhang_colorization_example_cropped.jpg" />
+
+</div>
+<p>[Zhang, Isola, Efros]</p>
+<h2 id="color-space">Color Space</h2>
+<p>For the colorization process, the <span class="math inline">\(Lab\)</span> color space is used; One of the channels (<span class="math inline">\(L\)</span>) is the input, and this also prevents sudden jumps in both color and brightness, unlike RGB.</p>
+<div class="figure">
+<img src="./images/cifar10_saturation0_17000_colorjump.png" />
+
+</div>
+<h2 id="model">Model</h2>
+<h3 id="generator">Generator</h3>
+<p>Symmetric with skip connections, the encoder part consisting of <span class="math inline">\(4 \times 4\)</span> convolution layers with stride <span class="math inline">\(2\)</span>, each followed by batch normalization and LeakyReLU with slope <span class="math inline">\(0.2\)</span>; the decoder part consisting of <span class="math inline">\(4 \times 4\)</span> transposed convolution layers with stride <span class="math inline">\(2\)</span>, concatenation with the activation map of its encoder mirrored layer, followed by batch normalization and ReLU; the last layer is a <span class="math inline">\(1 \times 1\)</span> convolution with <span class="math inline">\(\tanh\)</span> activation function.</p>
+<div class="figure">
+<img src="./images/generator.png" />
+
+</div>
+<h3 id="discriminator">Discriminator</h3>
+<p>Formed by a series of <span class="math inline">\(4 \times 4\)</span> convolutional layers with stride <span class="math inline">\(2\)</span>, batch normalization, and LeakyReLU with slope <span class="math inline">\(0.2\)</span>. After the last layer, a convolution is applied to map a <span class="math inline">\(1\)</span> dimensional output, followed by a sigmoid function in order to return a probability value of the input's veracity.</p>
+<div class="figure">
+<img src="./images/discriminator.png" />
+
+</div>
+<h3 id="changes-for-better-performance">Changes for Better Performance</h3>
+<ul>
+<li>Adam optimization;</li>
+<li>Weight initialization as proposed by [He, Kaiming et al.];</li>
+<li>Initial learning rate of <span class="math inline">\(2 \cdot 10^{-4}\)</span> for both the generator and the discriminator;</li>
+<li>Decay the learning rate by a factor of <span class="math inline">\(10\)</span> when the loss function starts to plateau;</li>
+<li>L1-Norm in the generator's loss function (<span class="math inline">\(\lambda \left\lVert G\left( 0_z \mid x \right) - y \right\rVert_1\)</span>) with <span class="math inline">\(\lambda = 100\)</span>;</li>
+<li>Heuristic cost function proposed by [Goodfellow, Nips 2016 tutorial];</li>
+<li>One sided label smoothing;</li>
+<li>Batch normalization;</li>
+<li>Strided convolutions instead of spatial pooling;</li>
+<li>Reduced momentum;</li>
+<li>LeakyReLU instead of ReLU;</li>
+</ul>
+<h3 id="cost-functions">Cost Functions</h3>
+<p>The cost functions defined by [Nazeri, Kamyar and Ng, Eric and Ebrahimi, Mehran] are as follows:</p>
+<p><span class="math display">\[\underset{\theta_G}{\min} J^{\left(G\right)} \left(\theta_D, \theta_G\right) = \underset{\theta_G}{\min} -\mathbb{E}_z \left[ \log \left( D \left( 0_z \mid x \right) \right) \right] + \lambda \left\lVert G\left( 0_z \mid x \right) - y \right\rVert_1\]</span></p>
+<p><span class="math display">\[\underset{\theta_D}{\max} J^{\left(D\right)} \left(\theta_D, \theta_G\right) = \underset{\theta_D}{\max} \left( \mathbb{E}_y\left[ \log \left(D\left(y \mid x\right)\right) \right] + \mathbb{E}_z\left[ \log \left( 1 - D\left(G\left( 0_z \mid x \right) \mid x \right) \right) \right] \right)\]</span></p>
+<p>In order to introduce controls over parameters, new terms are introduced as follows:</p>
+<p><span class="math display">\[\cdots + \lambda_S \left\lvert \overline{G\left( 0_z \mid x \right)_S} - \sigma_S \right\rvert\]</span> <span class="math display">\[\cdots + \lambda_H \left\lvert \overline{G\left( 0_z \mid x \right)_H} - \sigma_H \right\rvert\]</span> <span class="math display">\[\cdots + \lambda_R \left\lvert \overline{G\left( 0_z \mid x \right)_R} - \sigma_R \right\rvert\]</span> <span class="math display">\[\cdots + \lambda_G \left\lvert \overline{G\left( 0_z \mid x \right)_G} - \sigma_G \right\rvert\]</span> <span class="math display">\[\cdots + \lambda_B \left\lvert \overline{G\left( 0_z \mid x \right)_B} - \sigma_B \right\rvert\]</span> <span class="math display">\[\vdots\]</span></p>
+<h2 id="environment-setup">Environment Setup</h2>
+<ul>
+<li>Google Colab
+<ul>
+<li>Tesla K80 GPU</li>
+<li>12 hours of usage before timeout</li>
+<li>Ability to run multiple instances at once (max. 10);</li>
+<li>Quirkiness;</li>
+</ul></li>
+<li>Tensorflow</li>
+</ul>
+<h2 id="training">Training</h2>
+<p>Download the code <a href="https://github.com/dccsillag/dccsillag.github.io/tree/master/projects/GAN-Image-Colorization-with-Controlled-Parameters/Code">here</a>;</p>
+<p>To train the model under the CIFAR-10 dataset, use the following command:</p>
+<pre><code>python train.py \
+    --seed 100 \
+    --dataset cifar10 \
+    --dataset-path ./dataset/cifar10 \
+    --checkpoints-path ./checkpoints \
+    --batch-size 128 \
+    --epochs 200 \
+    --lr 3e-4 \
+    --lr-decay-steps 1e4 \
+    --augment True</code></pre>
+<p>and add other flags at the end, such as <code>--desired-saturation 1</code>, <code>--saturation-weight 20</code>, <code>--desired-hue 0.6</code>, etc.</p>
+<h2 id="results">Results</h2>
+<ul>
+<li>Trained using CIFAR-10 dataset; Places365 was too large to fit Colab's storage and even when reduced did not train even one epoch before timeout;</li>
+<li>Time to train the model with different parameters changed a lot; training with approx. 200 epochs takes aroudn 6 days;</li>
+</ul>
+<h3 id="previous-results">Previous Results</h3>
+<p>From [Nazeri, Kaymar and Ng, Eric and Ebrahimi, Mehran]</p>
+<p>Grayscale / Original / U-Net / GAN</p>
+<div class="figure">
+<img src="./images/nazeri_cifar10_cropped.png" />
+
+</div>
+<h3 id="sigma_s-1"><span class="math inline">\(\sigma_S = 1\)</span></h3>
+<p>(70000 steps = 179 epochs)</p>
+<div class="figure">
+<img src="./images/cifar10_saturation1_70000.png" />
+
+</div>
+<h3 id="sigma_s-0.75"><span class="math inline">\(\sigma_S = 0.75\)</span></h3>
+<p>(83000 steps = 212 epochs)</p>
+<div class="figure">
+<img src="./images/cifar10_saturation0.75_83000.png" />
+
+</div>
+<h3 id="sigma_s-0.5"><span class="math inline">\(\sigma_S = 0.5\)</span></h3>
+<p>(82000 steps = 209 epochs)</p>
+<div class="figure">
+<img src="./images/cifar10_saturation0.5_82000.png" />
+
+</div>
+<h3 id="sigma_s-0.25"><span class="math inline">\(\sigma_S = 0.25\)</span></h3>
+<p>(85000 steps = 217 epochs)</p>
+<div class="figure">
+<img src="./images/cifar10_saturation0.25_85000.png" />
+
+</div>
+<h3 id="sigma_s-0"><span class="math inline">\(\sigma_S = 0\)</span></h3>
+<p>(81000 steps = 207 epochs)</p>
+<div class="figure">
+<img src="./images/cifar10_saturation0_81000.png" />
+
+</div>
+<h3 id="sigma_h-0"><span class="math inline">\(\sigma_H = 0\)</span></h3>
+<p>(78000 steps = 199 epochs)</p>
+<div class="figure">
+<img src="./images/cifar10_hue0_78000.png" />
+
+</div>
+<h3 id="sigma_h-0.25"><span class="math inline">\(\sigma_H = 0.25\)</span></h3>
+<p>(78000 steps = 199 epochs)</p>
+<div class="figure">
+<img src="./images/cifar10_hue0.25_78000.png" />
+
+</div>
+<h3 id="sigma_h-0.6"><span class="math inline">\(\sigma_H = 0.6\)</span></h3>
+<p>(78000 steps = 199 epochs)</p>
+<div class="figure">
+<img src="./images/cifar10_hue0.6_78000.png" />
+
+</div>
+<h3 id="sigma_h-0.85"><span class="math inline">\(\sigma_H = 0.85\)</span></h3>
+<p>(78000 steps = 199 epochs)</p>
+<div class="figure">
+<img src="./images/cifar10_hue0.85_78000.png" />
+
+</div>
+<h3 id="sigma_s-0.75-sigma_h-0.6"><span class="math inline">\(\sigma_S = 0.75, \sigma_H = 0.6\)</span></h3>
+<p>(73000 steps = 186 epochs)</p>
+<div class="figure">
+<img src="./images/cifar10_saturation0.75_hue0.6_73000.png" />
+
+</div>
+<h2 id="further-work">Further Work</h2>
+<ul>
+<li>Experiment further with the added loss function terms (on the discriminator, on the generator, on both, etc.)</li>
+<li>Experiment with adding weights to the added terms on the loss function (the results were generated with <span class="math inline">\(\lambda_\ast = 1\)</span>);</li>
+<li>Change the L1-Norm in the generator's loss function, so that it also considers the parameters;</li>
+<li>Change the dataset or only a few of its images to fit the given parameters;</li>
+<li>Train the network on other datasets (CelebA, CIFAR-100, Places365, LSUN, etc.);</li>
+</ul>
+</body>
+</html>
