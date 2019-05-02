@@ -1,4 +1,4 @@
-# Welcome to dccsilag's homepage!
+# Welcome to dccsillag's homepage!
 
 ## Coursework
 
