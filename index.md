@@ -11,3 +11,5 @@
 
  - First Assignment: [Various Modelling Techniques Implemented in Blender](coursework/3dGraphicsSystems/Assignment1/index.html)
     + Code: [dccsillag/blender-modelling-techniques](https://github.com/dccsillag/blender-modelling-techniques)
+ - Second Assignment: [s3d-assignment-2](coursework/3dGraphicsSystems/Assignment2/index.html)
+    + Code: [dccsillag/s3d-assignment-2](https://github.com/dccsillag/s3d-assignment-2)
