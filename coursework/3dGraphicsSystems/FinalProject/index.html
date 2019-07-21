@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>FACS-based Facial Expression Animation in Unity</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="pandoc.css" type="text/css" />
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+</head>
+<body>
+<div id="header">
+<h1 class="title">FACS-based Facial Expression Animation in Unity</h1>
+</div>
+<h1 id="facs-based-facial-expression-animation-in-unity">FACS-based Facial Expression Animation in Unity</h1>
+<p>This is the final project for the <a href="http://lvelho.impa.br/i3d19/">&quot;Sistemas Gráficos 3D&quot; (3D Graphics Systems) course</a>.</p>
+<div class="figure">
+<img src="images/demo.gif" />
+
+</div>
+<h2 id="overview">Overview</h2>
+<p>In this project, simple facial expression animation was implemented in Unity via a <code>FaceManager.cs</code> script on a mesh with Blendshapes for specific Action Units, specified by the Facial Action Coding System (FACS).</p>
+<p>From another script, you can then use:</p>
+<div class="sourceCode"><pre class="sourceCode c#"><code class="sourceCode cs">...
+FaceManager fm;
+
+<span class="dt">void</span> <span class="fu">Start</span>() {
+    ...
+    fm = GetComponent&lt;FaceManager&gt;();
+    ...
+}
+
+<span class="dt">void</span> <span class="fu">Update</span>() {
+    ...
+    fm.<span class="fu">ShowExpression</span>(FaceExpression.<span class="fu">Happiness</span>, <span class="co">// facial expression</span>
+                      <span class="dv">500</span>,                      <span class="co">// animation duration (ms)</span>
+                      <span class="dv">10</span>,                       <span class="co">// apex duration (ms)</span>
+                      <span class="dv">1</span>);                       <span class="co">// intensity</span>
+    ...
+}</code></pre></div>
+<p>Additionally, the face can move its mouth to simulate speech, like so:</p>
+<div class="sourceCode"><pre class="sourceCode c#"><code class="sourceCode cs">fm.<span class="fu">StartSpeaking</span>(<span class="dv">750</span>); <span class="co">// speech animation duration (ms)</span>
+...
+fm.<span class="fu">StopSpeaking</span>(); <span class="co">// speech animation duration (ms)</span></code></pre></div>
+<h2 id="animation">Animation</h2>
+<p>We need to produce an animation given the starting point and the final point along with the desired duration. A trivial solution is linear interpolation, but it doesn't produce smooth movement when chaining expressions; in order to overcome this, we pass the output of the linear interpolation to a function <span class="math inline">\(f : [0, 1] \rightarrow [0, 1]\)</span> such that:</p>
+<ul>
+<li><span class="math inline">\(f\)</span> is derivable</li>
+<li><span class="math inline">\(f(0) = 0\)</span></li>
+<li><span class="math inline">\(f(1) = 1\)</span></li>
+<li><span class="math inline">\(f&#39;(0) = f&#39;(1) = 0\)</span></li>
+</ul>
+<p>For example:</p>
+<ul>
+<li><span class="math inline">\(f(t) = \cos((t-1)\pi)/2 + 1/2\)</span></li>
+<li><span class="math inline">\(f(t) = -2t^3 + 3t^2\)</span></li>
+</ul>
+<p>Additionally, after finishing this animation, the face stays in &quot;rest&quot; for a given duration, forming the expression's apex.</p>
+<h2 id="facs-em-facs">FACS / EM-FACS</h2>
+<p>The <a href="https://www.paulekman.com/product/facs-manual/">Facial Action Coding System (FACS)</a> developed by Paul Ekman encodes facial activity into <em>Action Units</em> (AUs); here are some examples:</p>
+<table style="width:100%;">
+<colgroup>
+<col width="21%" />
+<col width="33%" />
+<col width="21%" />
+<col width="22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">AU 0</th>
+<th align="center">AU 1</th>
+<th align="center">AU 2</th>
+<th align="center">AU 25</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Neutral face</td>
+<td align="center">Raises the inner part of the eyebrows</td>
+<td align="center">Arches the eyebrows</td>
+<td align="center">Parts the lips</td>
+</tr>
+<tr class="even">
+<td align="center"><img src="images/aus/au0.png" width="113" /></td>
+<td align="center"><img src="images/aus/au1.png" width="113" /></td>
+<td align="center"><img src="images/aus/au2.png" width="113" /></td>
+<td align="center"><img src="images/aus/au25.png" width="113" /></td>
+</tr>
+</tbody>
+</table>
+<p>In the current implementation, we use the following AUs (plus AU 0, which is the lack of any other AUs):</p>
+<ul>
+<li>AU 4</li>
+<li>AU 1</li>
+<li>AU 2</li>
+<li>AU 5</li>
+<li>AU 7</li>
+<li>AU 6</li>
+<li>AU 9</li>
+<li>AU 10</li>
+<li>AU 17</li>
+<li>AU 15</li>
+<li>AU 25</li>
+<li>AU 26</li>
+<li>AU 27</li>
+<li>AU 16</li>
+<li>AU 20</li>
+<li>AU 12</li>
+<li>AU 23</li>
+<li>AU 24</li>
+</ul>
+<p>However, this is still not enough to determine the desired expression, given some emotion - for this, we use Emotional FACS (EM-FACS), which maps certain combinations of AUs to one of the six basic emotions:</p>
+<ul>
+<li>Happiness</li>
+<li>Sadness</li>
+<li>Surprise</li>
+<li>Fear</li>
+<li>Anger</li>
+<li>Disgust</li>
+</ul>
+<p>The final facial expression is then determined by a lookup table based on EM-FACS, mapping each of the basic emotions to a list of activation weights for selected AUs, and then selecting the list of weights <span class="math inline">\(u\)</span> that minimizes <span class="math inline">\(\lVert u - v \rVert_2\)</span> where <span class="math inline">\(v\)</span> are the current weights.</p>
+<h2 id="additional-features">Additional Features</h2>
+<p>The interface has some details:</p>
+<ul>
+<li>If <code>ShowExpression</code> is called when an expression animation is in progress, the call will be added to a stack to be run once the current animation finishes;</li>
+<li>Stop expressions by using <code>StopExpression();</code> - this is the same as <code>ShowExpression(FaceExpression.Neutral, ...);</code> but without adding to the expression stack;</li>
+</ul>
+</body>
+</html>
