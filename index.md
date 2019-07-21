@@ -13,5 +13,5 @@
     + Code: [dccsillag/blender-modelling-techniques](https://github.com/dccsillag/blender-modelling-techniques)
  - Second Assignment: [s3d-assignment-2](coursework/3dGraphicsSystems/Assignment2/index.html)
     + Code: [dccsillag/s3d-assignment-2](https://github.com/dccsillag/s3d-assignment-2)
- - Final Project: [](coursework/3dGraphicsSystems/FinalProject/index.html)
+ - Final Project: [FACS-based Facial Expression Animation Implemented in Unity](coursework/3dGraphicsSystems/FinalProject/index.html)
     + Code: [dccsillag/unity-facs-facial-expression-animation](https://github.com/dccsillag/unity-facs-facial-expression-animation)
