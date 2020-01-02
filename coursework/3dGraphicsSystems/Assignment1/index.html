@@ -1,54 +1,89 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>dccsillag’s homepage</title>
   <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="pandoc.css" type="text/css" />
-  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../../style/base-style.css" />
+  <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
+<header id="title-block-header">
+<h1 class="title">dccsillag’s homepage</h1>
+</header>
 <h1 id="various-modelling-techniques-implemented-in-blender">Various Modelling Techniques Implemented in Blender</h1>
-<p>This is my solution to the first assignment of the course <a href="http://lvelho.impa.br/i3d19/">&quot;Sistemas Gráficos 3D&quot;</a>. The code can be found in <a href="https://github.com/dccsillag/blender-modelling-techniques">dccsillag/blender-modelling-techniques</a>. The idea was to create elements that would be present in a garden.</p>
+<p>This is my solution to the first assignment of the course <a href="http://lvelho.impa.br/i3d19/">“Sistemas Gráficos 3D”</a>. The code can be found in <a href="https://github.com/dccsillag/blender-modelling-techniques">dccsillag/blender-modelling-techniques</a>. The idea was to create elements that would be present in a garden.</p>
 <ul>
 <li><a href="#rocks">Rocks</a> (Implicit functions with skeleton primitives)</li>
 <li><a href="#bridges">Bridges</a> (Union of parametric functions based on a 2D quadratic Bezier Curve)</li>
@@ -59,10 +94,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="#controlled-plants">Controlled Plants</a> (A special symbol for use with L-Systems to introduce better control over shape is proposed)</li>
 </ul>
 <h2 id="rocks">Rocks</h2>
-<div class="figure">
-<img src="./images/pebbles.png" />
-
-</div>
+<p><img src="./images/pebbles.png" /></p>
 <p>The rocks above were generated by creating an implicit surface using elliptical skeleton primitives, polygonized by an adaptive Marching Cubes algorithm with interval arithmetic.</p>
 <p>We want to construct some implicit function <span class="math inline">\(f : \mathbb{R}^3 \rightarrow \mathbb{R}\)</span> such that <span class="math inline">\(f^{-1}(0) = \{ x \in \mathbb{R}^3 \mid f(x) = 0 \}\)</span>. A quite common way of constructing such functions is by blending skeleton primitives, which constitute of a radius <span class="math inline">\(r_i\)</span> and a distance function <span class="math inline">\(d_i : \mathbb{R}^3 \rightarrow \mathbb{R}^+\)</span>, applied to a field function <span class="math inline">\(g : \mathbb{R} \rightarrow \mathbb{R}\)</span>. The blending operation is then the sum of the field function applied to the distance functions, thus making our desired function</p>
 <p><span class="math display">\[f(x) = \sum_i g(d_i(x)) - \sigma,\]</span></p>
@@ -78,7 +110,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><span class="math inline">\(g(d) = 1 - 4d^6/9r^6 + 17d^4/9r^4 - 22d^2/9r^2\)</span></li>
 <li><span class="math inline">\(g(d) = (1- d^2/r^2)^3\)</span></li>
 </ul>
-<p>The one chosen was Blinn's Gaussian function:</p>
+<p>The one chosen was Blinn’s Gaussian function:</p>
 <p><span class="math display">\[g(d) = \exp(-r_i d^2).\]</span></p>
 <p>The isovalue clearly cannot be <span class="math inline">\(\sigma = 0\)</span>, since then the function is always positive - we use <span class="math inline">\(\sigma = 1\)</span> instead.</p>
 <p>The parameters necessary for the generating the implicit function are:</p>
@@ -99,12 +131,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 <p>Where <span class="math inline">\(r_x\)</span>, <span class="math inline">\(r_y\)</span>, <span class="math inline">\(r_z\)</span> are the radii of the ellipses, <span class="math inline">\(r_{\max}\)</span> is passed to the field function, <span class="math inline">\(c_x\)</span>, <span class="math inline">\(c_y\)</span>, <span class="math inline">\(c_z\)</span> are the coordinates for the center of the ellipses, and <span class="math inline">\(p_x\)</span>, <span class="math inline">\(p_y\)</span>, <span class="math inline">\(p_z\)</span> are the center of the desired rock.</p>
 <p>Finally, in order to generate vertices and faces that approximate <span class="math inline">\(f^{-1}(0)\)</span> sufficiently well, we use a divide-and-conquer approach. Given an initial interval in <span class="math inline">\(\mathbb{R}^3\)</span>, we use an octree to isolate where the surface is, and when we are sufficiently deep, using a lookup table (with 256 cases) we see which edges of the current cell that has some <span class="math inline">\(f(x) = 0\)</span>. Then, interpolating linearly with <span class="math inline">\(f\)</span> itself, we can approximate triangle (s) for that cell.</p>
-<p>In order to check whether the surface passes through a box in <span class="math inline">\(\mathbb{R}^3\)</span>, we use interval arithmetic. This way, to check if <span class="math inline">\(f^{-1}(0)\)</span> goes through <span class="math inline">\([a_x, b_x] \times [a_y, b_y] \times [a_z, b_z]\)</span>, we calculate <span class="math inline">\(f([a_x, b_x], [a_y, b_y], [a_z, b_z]) = [a, b]\)</span> and check if <span class="math inline">\(0 \in [a, b]\)</span> (if <span class="math inline">\(a \leq 0 \leq b\)</span>). This guarantees that we are not skipping any part of the surface, as might happen if we had just considered the values of <span class="math inline">\(f\)</span> on the box's vertices (ignoring when checking the lookup table).</p>
+<p>In order to check whether the surface passes through a box in <span class="math inline">\(\mathbb{R}^3\)</span>, we use interval arithmetic. This way, to check if <span class="math inline">\(f^{-1}(0)\)</span> goes through <span class="math inline">\([a_x, b_x] \times [a_y, b_y] \times [a_z, b_z]\)</span>, we calculate <span class="math inline">\(f([a_x, b_x], [a_y, b_y], [a_z, b_z]) = [a, b]\)</span> and check if <span class="math inline">\(0 \in [a, b]\)</span> (if <span class="math inline">\(a \leq 0 \leq b\)</span>). This guarantees that we are not skipping any part of the surface, as might happen if we had just considered the values of <span class="math inline">\(f\)</span> on the box’s vertices (ignoring when checking the lookup table).</p>
 <h2 id="bridges">Bridges</h2>
-<div class="figure">
-<img src="./images/bridge.png" />
-
-</div>
+<p><img src="./images/bridge.png" /></p>
 <p>The bridges are generated by a set of parametric objects, given by functions <span class="math inline">\(f : [0, 1] \times [0, 1] \rightarrow \mathbb{R}^3\)</span>. They are defined with the following parameters:</p>
 <ul>
 <li>Bridge width;</li>
@@ -123,35 +152,32 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><span class="math display">\[P_0 = (\mathrm{length}, 0),\]</span> <span class="math display">\[P_1 = (\mathrm{random}(0.1\cdot\mathrm{length}, 0.5\cdot\mathrm{length}), \mathrm{height}),\]</span> <span class="math display">\[P_2 = (0, \mathrm{height}).\]</span></p>
 <p>This Bezier curve is used to construct the bridge (mirroring the curve over its middle), along with the railings.</p>
 <h2 id="bushes">Bushes</h2>
-<div class="figure">
-<img src="./images/bush.png" />
-
-</div>
+<p><img src="./images/bush.png" /></p>
 <p>A L-System is defined by an axiom and a set of replacement rules. Then, for each step, we go over the current axiom and replace each symbol with the corresponding replacement rule.</p>
-<p>In order to draw things using L-Systems, a common approach is to use turtle graphics. The idea is that you have a &quot;turtle,&quot; which can respond to some basic instructions (in 2D):</p>
+<p>In order to draw things using L-Systems, a common approach is to use turtle graphics. The idea is that you have a “turtle,” which can respond to some basic instructions (in 2D):</p>
 <table>
 <thead>
 <tr class="header">
-<th align="left">Symbol</th>
-<th align="right">Action</th>
+<th style="text-align: left;">Symbol</th>
+<th style="text-align: right;">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>F</code></td>
-<td align="right">Walk forward, drawing the path</td>
+<td style="text-align: left;"><code>F</code></td>
+<td style="text-align: right;">Walk forward, drawing the path</td>
 </tr>
 <tr class="even">
-<td align="left"><code>f</code></td>
-<td align="right">Walk forward, but don't draw the path</td>
+<td style="text-align: left;"><code>f</code></td>
+<td style="text-align: right;">Walk forward, but don’t draw the path</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>+</code></td>
-<td align="right">Turn left</td>
+<td style="text-align: left;"><code>+</code></td>
+<td style="text-align: right;">Turn left</td>
 </tr>
 <tr class="even">
-<td align="left"><code>-</code></td>
-<td align="right">Turn right</td>
+<td style="text-align: left;"><code>-</code></td>
+<td style="text-align: right;">Turn right</td>
 </tr>
 </tbody>
 </table>
@@ -159,42 +185,42 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <table>
 <thead>
 <tr class="header">
-<th align="left">Symbol</th>
-<th align="right">Action</th>
+<th style="text-align: left;">Symbol</th>
+<th style="text-align: right;">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>F</code></td>
-<td align="right">Walk forward, drawing the path</td>
+<td style="text-align: left;"><code>F</code></td>
+<td style="text-align: right;">Walk forward, drawing the path</td>
 </tr>
 <tr class="even">
-<td align="left"><code>f</code></td>
-<td align="right">Walk forward, but don't draw the path</td>
+<td style="text-align: left;"><code>f</code></td>
+<td style="text-align: right;">Walk forward, but don’t draw the path</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>+</code></td>
-<td align="right">Yaw left</td>
+<td style="text-align: left;"><code>+</code></td>
+<td style="text-align: right;">Yaw left</td>
 </tr>
 <tr class="even">
-<td align="left"><code>-</code></td>
-<td align="right">Yaw right</td>
+<td style="text-align: left;"><code>-</code></td>
+<td style="text-align: right;">Yaw right</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&amp;</code></td>
-<td align="right">Pitch down</td>
+<td style="text-align: left;"><code>&amp;</code></td>
+<td style="text-align: right;">Pitch down</td>
 </tr>
 <tr class="even">
-<td align="left"><code>^</code></td>
-<td align="right">Pitch up</td>
+<td style="text-align: left;"><code>^</code></td>
+<td style="text-align: right;">Pitch up</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>\</code></td>
-<td align="right">Roll left</td>
+<td style="text-align: left;"><code>\</code></td>
+<td style="text-align: right;">Roll left</td>
 </tr>
 <tr class="even">
-<td align="left"><code>/</code></td>
-<td align="right">Roll right</td>
+<td style="text-align: left;"><code>/</code></td>
+<td style="text-align: right;">Roll right</td>
 </tr>
 </tbody>
 </table>
@@ -202,18 +228,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <table>
 <thead>
 <tr class="header">
-<th align="left">Symbol</th>
-<th align="right">Action</th>
+<th style="text-align: left;">Symbol</th>
+<th style="text-align: right;">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>[</code></td>
-<td align="right">Push turtle to stack</td>
+<td style="text-align: left;"><code>[</code></td>
+<td style="text-align: right;">Push turtle to stack</td>
 </tr>
 <tr class="even">
-<td align="left"><code>]</code></td>
-<td align="right">Pop turtle from stack</td>
+<td style="text-align: left;"><code>]</code></td>
+<td style="text-align: right;">Pop turtle from stack</td>
 </tr>
 </tbody>
 </table>
@@ -225,34 +251,34 @@ p_0    &amp; : &amp; \mathtt{F} &amp; \xrightarrow{} &amp; \mathtt{F[+F]}
 <table>
 <thead>
 <tr class="header">
-<th align="left">Step</th>
-<th align="center">Axiom</th>
+<th style="text-align: left;">Step</th>
+<th style="text-align: center;">Axiom</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">0</td>
-<td align="center"><code>F</code></td>
+<td style="text-align: left;">0</td>
+<td style="text-align: center;"><code>F</code></td>
 </tr>
 <tr class="even">
-<td align="left">1</td>
-<td align="center"><code>F[+F]</code></td>
+<td style="text-align: left;">1</td>
+<td style="text-align: center;"><code>F[+F]</code></td>
 </tr>
 <tr class="odd">
-<td align="left">2</td>
-<td align="center"><code>F[+F][+F[+F]]</code></td>
+<td style="text-align: left;">2</td>
+<td style="text-align: center;"><code>F[+F][+F[+F]]</code></td>
 </tr>
 <tr class="even">
-<td align="left">3</td>
-<td align="center"><code>F[+F][+F[+F]][+F[+F][+F[+F]]]</code></td>
+<td style="text-align: left;">3</td>
+<td style="text-align: center;"><code>F[+F][+F[+F]][+F[+F][+F[+F]]]</code></td>
 </tr>
 <tr class="odd">
-<td align="left">4</td>
-<td align="center"><code>F[+F][+F[+F]][+F[+F][+F[+F]]][+F[+F][+F[+F]][+F[+F][+F[+F]]]]</code></td>
+<td style="text-align: left;">4</td>
+<td style="text-align: center;"><code>F[+F][+F[+F]][+F[+F][+F[+F]]][+F[+F][+F[+F]][+F[+F][+F[+F]]]]</code></td>
 </tr>
 </tbody>
 </table>
-<p>Using these alphabets given above will result in always generating the exact same string of instructions. To overcome this, we use Stochastic L-Systems, in which each instruction has a probability of being used, with all the instructions for the same symbol's probability adding up to one. This usually also adds a higher feeling of naturality to the drawn object.</p>
+<p>Using these alphabets given above will result in always generating the exact same string of instructions. To overcome this, we use Stochastic L-Systems, in which each instruction has a probability of being used, with all the instructions for the same symbol’s probability adding up to one. This usually also adds a higher feeling of naturality to the drawn object.</p>
 <hr />
 <p>The bushes in the images were all generated using the following Stochastic L-System:</p>
 <p><span class="math display">\[\begin{array}{cclcl}
@@ -269,92 +295,89 @@ p_4    &amp; : &amp; \mathtt{B} &amp; \xrightarrow{}     &amp; \mathtt{[-Fb]}
 <table>
 <thead>
 <tr class="header">
-<th align="left">Symbol</th>
-<th align="right">Action</th>
+<th style="text-align: left;">Symbol</th>
+<th style="text-align: right;">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>F</code></td>
-<td align="right">Walk forward, drawing the path</td>
+<td style="text-align: left;"><code>F</code></td>
+<td style="text-align: right;">Walk forward, drawing the path</td>
 </tr>
 <tr class="even">
-<td align="left"><code>f</code></td>
-<td align="right">Walk forward, but don't draw the path</td>
+<td style="text-align: left;"><code>f</code></td>
+<td style="text-align: right;">Walk forward, but don’t draw the path</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>+</code></td>
-<td align="right">Yaw left</td>
+<td style="text-align: left;"><code>+</code></td>
+<td style="text-align: right;">Yaw left</td>
 </tr>
 <tr class="even">
-<td align="left"><code>-</code></td>
-<td align="right">Yaw right</td>
+<td style="text-align: left;"><code>-</code></td>
+<td style="text-align: right;">Yaw right</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&amp;</code></td>
-<td align="right">Pitch down</td>
+<td style="text-align: left;"><code>&amp;</code></td>
+<td style="text-align: right;">Pitch down</td>
 </tr>
 <tr class="even">
-<td align="left"><code>^</code></td>
-<td align="right">Pitch up</td>
+<td style="text-align: left;"><code>^</code></td>
+<td style="text-align: right;">Pitch up</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>\</code></td>
-<td align="right">Roll left</td>
+<td style="text-align: left;"><code>\</code></td>
+<td style="text-align: right;">Roll left</td>
 </tr>
 <tr class="even">
-<td align="left"><code>/</code></td>
-<td align="right">Roll right</td>
+<td style="text-align: left;"><code>/</code></td>
+<td style="text-align: right;">Roll right</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>|</code></td>
-<td align="right">Turn around</td>
+<td style="text-align: left;"><code>|</code></td>
+<td style="text-align: right;">Turn around</td>
 </tr>
 <tr class="even">
-<td align="left"><code>[</code></td>
-<td align="right">Push turtle to stack</td>
+<td style="text-align: left;"><code>[</code></td>
+<td style="text-align: right;">Push turtle to stack</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>]</code></td>
-<td align="right">Pop turtle from stack</td>
+<td style="text-align: left;"><code>]</code></td>
+<td style="text-align: right;">Pop turtle from stack</td>
 </tr>
 <tr class="even">
-<td align="left"><code>{</code></td>
-<td align="right">Start drawing a polygon</td>
+<td style="text-align: left;"><code>{</code></td>
+<td style="text-align: right;">Start drawing a polygon</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>}</code></td>
-<td align="right">Finish drawing a polygon</td>
+<td style="text-align: left;"><code>}</code></td>
+<td style="text-align: right;">Finish drawing a polygon</td>
 </tr>
 <tr class="even">
-<td align="left"><code>A</code></td>
-<td align="right">Dummy symbol</td>
+<td style="text-align: left;"><code>A</code></td>
+<td style="text-align: right;">Dummy symbol</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>B</code></td>
-<td align="right">Dummy symbol</td>
+<td style="text-align: left;"><code>B</code></td>
+<td style="text-align: right;">Dummy symbol</td>
 </tr>
 <tr class="even">
-<td align="left"><code>S</code></td>
-<td align="right">Dummy symbol</td>
+<td style="text-align: left;"><code>S</code></td>
+<td style="text-align: right;">Dummy symbol</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>L</code></td>
-<td align="right">Dummy symbol</td>
+<td style="text-align: left;"><code>L</code></td>
+<td style="text-align: right;">Dummy symbol</td>
 </tr>
 <tr class="even">
-<td align="left"><code>b</code></td>
-<td align="right">A flower heading the turtle's direction, from <code>magnolia.obj</code></td>
+<td style="text-align: left;"><code>b</code></td>
+<td style="text-align: right;">A flower heading the turtle’s direction, from <code>magnolia.obj</code></td>
 </tr>
 </tbody>
 </table>
 <h2 id="trees">Trees</h2>
-<div class="figure">
-<img src="./images/tree.png" />
-
-</div>
+<p><img src="./images/tree.png" /></p>
 <p>Parametric L-Systems are a slight variation of normal L-Systems in which we associate parameters with the symbols in our alphabet.</p>
-<p>The trees we wish to model have a trunk, from which branches grow out from. The trunk's and branch's lengths vary proportionally, trunk according to a constant <span class="math inline">\(r_1\)</span>, and the branches to a constant <span class="math inline">\(r_2\)</span>. Branches also extrude from the trunk with an angle of <span class="math inline">\(a_0\)</span> and from another branch with an angle of <span class="math inline">\(a_2\)</span>. Finally, the trunk rolls as per a constant <span class="math inline">\(d\)</span>, so that we branch out in different directions.</p>
+<p>The trees we wish to model have a trunk, from which branches grow out from. The trunk’s and branch’s lengths vary proportionally, trunk according to a constant <span class="math inline">\(r_1\)</span>, and the branches to a constant <span class="math inline">\(r_2\)</span>. Branches also extrude from the trunk with an angle of <span class="math inline">\(a_0\)</span> and from another branch with an angle of <span class="math inline">\(a_2\)</span>. Finally, the trunk rolls as per a constant <span class="math inline">\(d\)</span>, so that we branch out in different directions.</p>
 <p>Using all this information, we elaborate a Parametric L-System:</p>
 <p><span class="math display">\[\begin{array}{cclcl}
 \omega &amp; : &amp; \mathtt{A_{1,10}} \\
@@ -366,74 +389,71 @@ p_2    &amp; : &amp; \mathtt{C_{l,w}} &amp; \xrightarrow{} &amp; \mathtt{F_\math
 <table>
 <thead>
 <tr class="header">
-<th align="left">Symbol</th>
-<th align="right">Action</th>
+<th style="text-align: left;">Symbol</th>
+<th style="text-align: right;">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>F</code></td>
-<td align="right">Walk forward, drawing the path</td>
+<td style="text-align: left;"><code>F</code></td>
+<td style="text-align: right;">Walk forward, drawing the path</td>
 </tr>
 <tr class="even">
-<td align="left"><code>f</code></td>
-<td align="right">Walk forward, but don't draw the path</td>
+<td style="text-align: left;"><code>f</code></td>
+<td style="text-align: right;">Walk forward, but don’t draw the path</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>+</code></td>
-<td align="right">Yaw left</td>
+<td style="text-align: left;"><code>+</code></td>
+<td style="text-align: right;">Yaw left</td>
 </tr>
 <tr class="even">
-<td align="left"><code>-</code></td>
-<td align="right">Yaw right</td>
+<td style="text-align: left;"><code>-</code></td>
+<td style="text-align: right;">Yaw right</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&amp;</code></td>
-<td align="right">Pitch down</td>
+<td style="text-align: left;"><code>&amp;</code></td>
+<td style="text-align: right;">Pitch down</td>
 </tr>
 <tr class="even">
-<td align="left"><code>^</code></td>
-<td align="right">Pitch up</td>
+<td style="text-align: left;"><code>^</code></td>
+<td style="text-align: right;">Pitch up</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>\</code></td>
-<td align="right">Roll left</td>
+<td style="text-align: left;"><code>\</code></td>
+<td style="text-align: right;">Roll left</td>
 </tr>
 <tr class="even">
-<td align="left"><code>/</code></td>
-<td align="right">Roll right</td>
+<td style="text-align: left;"><code>/</code></td>
+<td style="text-align: right;">Roll right</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>$</code></td>
-<td align="right">Roll the turtle so that the <code>left</code> vector is horizontal</td>
+<td style="text-align: left;"><code>$</code></td>
+<td style="text-align: right;">Roll the turtle so that the <code>left</code> vector is horizontal</td>
 </tr>
 <tr class="even">
-<td align="left"><code>[</code></td>
-<td align="right">Push turtle to stack</td>
+<td style="text-align: left;"><code>[</code></td>
+<td style="text-align: right;">Push turtle to stack</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>]</code></td>
-<td align="right">Pop turtle from stack</td>
+<td style="text-align: left;"><code>]</code></td>
+<td style="text-align: right;">Pop turtle from stack</td>
 </tr>
 <tr class="even">
-<td align="left"><code>A</code></td>
-<td align="right">Dummy symbol</td>
+<td style="text-align: left;"><code>A</code></td>
+<td style="text-align: right;">Dummy symbol</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>B</code></td>
-<td align="right">Dummy symbol</td>
+<td style="text-align: left;"><code>B</code></td>
+<td style="text-align: right;">Dummy symbol</td>
 </tr>
 <tr class="even">
-<td align="left"><code>C</code></td>
-<td align="right">Dummy symbol</td>
+<td style="text-align: left;"><code>C</code></td>
+<td style="text-align: right;">Dummy symbol</td>
 </tr>
 </tbody>
 </table>
 <h2 id="palm-trees">Palm Trees</h2>
-<div class="figure">
-<img src="./images/palm_tree.png" />
-
-</div>
+<p><img src="./images/palm_tree.png" /></p>
 <p>Palm trees are composed of a trunk, which is usually slightly curved because of the way it grew, and leaves, which have a main line, and branches out symmetrically. The leaves can stack one on top of the other, and shorter leaves are angled higher up due to gravity.</p>
 <p>Based on these observations, we formulate a Parametric Stochastic L-System, with some parameters:</p>
 <ul>
@@ -453,117 +473,111 @@ p_3    &amp; : &amp; \mathtt{l} &amp; \xrightarrow{}     &amp; \mathtt{\&amp;F[+
 <table>
 <thead>
 <tr class="header">
-<th align="left">Symbol</th>
-<th align="right">Action</th>
+<th style="text-align: left;">Symbol</th>
+<th style="text-align: right;">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>F</code></td>
-<td align="right">Walk forward, drawing the path</td>
+<td style="text-align: left;"><code>F</code></td>
+<td style="text-align: right;">Walk forward, drawing the path</td>
 </tr>
 <tr class="even">
-<td align="left"><code>f</code></td>
-<td align="right">Walk forward, but don't draw the path</td>
+<td style="text-align: left;"><code>f</code></td>
+<td style="text-align: right;">Walk forward, but don’t draw the path</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>+</code></td>
-<td align="right">Yaw left</td>
+<td style="text-align: left;"><code>+</code></td>
+<td style="text-align: right;">Yaw left</td>
 </tr>
 <tr class="even">
-<td align="left"><code>-</code></td>
-<td align="right">Yaw right</td>
+<td style="text-align: left;"><code>-</code></td>
+<td style="text-align: right;">Yaw right</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&amp;</code></td>
-<td align="right">Pitch down</td>
+<td style="text-align: left;"><code>&amp;</code></td>
+<td style="text-align: right;">Pitch down</td>
 </tr>
 <tr class="even">
-<td align="left"><code>^</code></td>
-<td align="right">Pitch up</td>
+<td style="text-align: left;"><code>^</code></td>
+<td style="text-align: right;">Pitch up</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>\</code></td>
-<td align="right">Roll left</td>
+<td style="text-align: left;"><code>\</code></td>
+<td style="text-align: right;">Roll left</td>
 </tr>
 <tr class="even">
-<td align="left"><code>/</code></td>
-<td align="right">Roll right</td>
+<td style="text-align: left;"><code>/</code></td>
+<td style="text-align: right;">Roll right</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>[</code></td>
-<td align="right">Push turtle to stack</td>
+<td style="text-align: left;"><code>[</code></td>
+<td style="text-align: right;">Push turtle to stack</td>
 </tr>
 <tr class="even">
-<td align="left"><code>]</code></td>
-<td align="right">Pop turtle from stack</td>
+<td style="text-align: left;"><code>]</code></td>
+<td style="text-align: right;">Pop turtle from stack</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>T</code></td>
-<td align="right">Dummy symbol</td>
+<td style="text-align: left;"><code>T</code></td>
+<td style="text-align: right;">Dummy symbol</td>
 </tr>
 <tr class="even">
-<td align="left"><code>C</code></td>
-<td align="right">Dummy symbol</td>
+<td style="text-align: left;"><code>C</code></td>
+<td style="text-align: right;">Dummy symbol</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>L</code></td>
-<td align="right">Dummy symbol</td>
+<td style="text-align: left;"><code>L</code></td>
+<td style="text-align: right;">Dummy symbol</td>
 </tr>
 <tr class="even">
-<td align="left"><code>l</code></td>
-<td align="right">Dummy symbol</td>
+<td style="text-align: left;"><code>l</code></td>
+<td style="text-align: right;">Dummy symbol</td>
 </tr>
 </tbody>
 </table>
 <h2 id="bowls-vases">Bowls / Vases</h2>
-<div class="figure">
-<img src="./images/vases3.png" />
-
-</div>
+<p><img src="./images/vases3.png" /></p>
 <p>These bowls and vases are surfaces of revolution, based on a Bezier curve of degree <span class="math inline">\(n\)</span>.</p>
 <p>The curve <span class="math inline">\(b_n : [0, 1] \rightarrow \mathbb{R}^2\)</span> is first mapped to <span class="math inline">\(\mathbb{R}^3\)</span> by defining</p>
 <p><span class="math display">\[B_n(t) = \left(b^{(0)}_n(t), 0, b^{(1)}_n(t)\right).\]</span></p>
 <p>Then, we simply rotate <span class="math inline">\(B_n(t)\)</span> along the Z axis by <span class="math inline">\(\theta = 0, 2\pi/n, \dots, 2\pi - 2\pi/n\)</span>, and create faces using the neighbors:</p>
 <p><span class="math display">\[R_{\theta} B_n(t) = \left(b^{(0)}_n(t) \cos \theta, b^{(0)}_n(t) \sin \theta, b^{(1)}_n(t)\right).\]</span></p>
 <h2 id="controlled-plants">Controlled Plants</h2>
-<div class="figure">
-<img src="./images/palm_data_0.png" />
-
-</div>
-<p>One major flaw of using L-Systems to model things such as plants is that the output you'll get usually isn't obvious; by simply looking at a L-System, you can't really tell what it's going to do, unless you understand what the idea behind it was.</p>
-<p>Suppose that, in a game, we intend to build a level in which the player has to walk on a branch of a giant tree that leads to some landmark. It would be madness to randomly generate trees, until one of them has such a branch - particularly since the level designer would feel disregarded due to his lack of input. One solution to this problem is to somehow describe to the tree generator that there must be a branch that goes in that direction - and perhaps even a basic idea of how the whole tree's structure should be like (direction it goes in, where it branches out, etc.).</p>
-<p>Ideally, we want to create something that could fit into the L-System for any tree. In particular, we can create a symbol that considers what to do based on input data. Our data is a tree of points - when one of this tree's nodes have more than one child, we want the generated tree to branch out in the direction of both of the children; If there are no children, then we should ignore the symbol and continue as normal; and finally, if there is only one child, then force the turtle in that direction.</p>
+<p><img src="./images/palm_data_0.png" /></p>
+<p>One major flaw of using L-Systems to model things such as plants is that the output you’ll get usually isn’t obvious; by simply looking at a L-System, you can’t really tell what it’s going to do, unless you understand what the idea behind it was.</p>
+<p>Suppose that, in a game, we intend to build a level in which the player has to walk on a branch of a giant tree that leads to some landmark. It would be madness to randomly generate trees, until one of them has such a branch - particularly since the level designer would feel disregarded due to his lack of input. One solution to this problem is to somehow describe to the tree generator that there must be a branch that goes in that direction - and perhaps even a basic idea of how the whole tree’s structure should be like (direction it goes in, where it branches out, etc.).</p>
+<p>Ideally, we want to create something that could fit into the L-System for any tree. In particular, we can create a symbol that considers what to do based on input data. Our data is a tree of points - when one of this tree’s nodes have more than one child, we want the generated tree to branch out in the direction of both of the children; If there are no children, then we should ignore the symbol and continue as normal; and finally, if there is only one child, then force the turtle in that direction.</p>
 <p>Instead of using only one turtle, we can make branching easier by considering a set of turtles. This way, the algorithm essentially becomes:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> each (node, turtle):
-    children <span class="op">=</span> node.children
-
-    <span class="cf">if</span> <span class="bu">len</span>(children) <span class="op">==</span> <span class="dv">0</span>:
-        <span class="co"># Reset step size for `turtle`</span>
-        <span class="cf">continue</span>
-
-    <span class="cf">if</span> (turtle.position <span class="op">-</span> node).length <span class="op">&lt;=</span> eps:
-        <span class="cf">for</span> child <span class="kw">in</span> children:
-            new_direction <span class="op">=</span> child <span class="op">-</span> turtle.position
-
-            new_turtle <span class="op">=</span> copy(turtle)
-            new_turtle.direction <span class="op">=</span> new_direction.normalized()
-            <span class="co"># Rotate the left and up vectors accordingly</span>
-            new_turtle.step_size <span class="op">=</span> c <span class="op">*</span> new_direction.length
-
-            new_turtles.append(new_turtle)
-            new_data.append(child)
-    <span class="cf">else</span>:
-        new_direction <span class="op">=</span> node <span class="op">-</span> turtle.position
-
-        new_turtle <span class="op">=</span> copy(turtle)
-        new_turtle.direction <span class="op">=</span> new_direction.normalized()
-        <span class="co"># Rotate the left and up vectors accordingly</span>
-        new_turtle.step_size <span class="op">=</span> c <span class="op">*</span> new_direction.length
-
-        new_turtles.append(new_turtle)
-        new_data.append(node)</code></pre></div>
-<p>It is important to set the step size for the turtle, to reinforce it's path, even if it is not uniformly distributed, and it is also quite useful to return the step size back to the original after there are no more children for the turtle to follow.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"><span class="cf">for</span> each (node, turtle):</a>
+<a class="sourceLine" id="cb1-2" title="2">    children <span class="op">=</span> node.children</a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="cf">if</span> <span class="bu">len</span>(children) <span class="op">==</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb1-5" title="5">        <span class="co"># Reset step size for `turtle`</span></a>
+<a class="sourceLine" id="cb1-6" title="6">        <span class="cf">continue</span></a>
+<a class="sourceLine" id="cb1-7" title="7"></a>
+<a class="sourceLine" id="cb1-8" title="8">    <span class="cf">if</span> (turtle.position <span class="op">-</span> node).length <span class="op">&lt;=</span> eps:</a>
+<a class="sourceLine" id="cb1-9" title="9">        <span class="cf">for</span> child <span class="kw">in</span> children:</a>
+<a class="sourceLine" id="cb1-10" title="10">            new_direction <span class="op">=</span> child <span class="op">-</span> turtle.position</a>
+<a class="sourceLine" id="cb1-11" title="11"></a>
+<a class="sourceLine" id="cb1-12" title="12">            new_turtle <span class="op">=</span> copy(turtle)</a>
+<a class="sourceLine" id="cb1-13" title="13">            new_turtle.direction <span class="op">=</span> new_direction.normalized()</a>
+<a class="sourceLine" id="cb1-14" title="14">            <span class="co"># Rotate the left and up vectors accordingly</span></a>
+<a class="sourceLine" id="cb1-15" title="15">            new_turtle.step_size <span class="op">=</span> c <span class="op">*</span> new_direction.length</a>
+<a class="sourceLine" id="cb1-16" title="16"></a>
+<a class="sourceLine" id="cb1-17" title="17">            new_turtles.append(new_turtle)</a>
+<a class="sourceLine" id="cb1-18" title="18">            new_data.append(child)</a>
+<a class="sourceLine" id="cb1-19" title="19">    <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb1-20" title="20">        new_direction <span class="op">=</span> node <span class="op">-</span> turtle.position</a>
+<a class="sourceLine" id="cb1-21" title="21"></a>
+<a class="sourceLine" id="cb1-22" title="22">        new_turtle <span class="op">=</span> copy(turtle)</a>
+<a class="sourceLine" id="cb1-23" title="23">        new_turtle.direction <span class="op">=</span> new_direction.normalized()</a>
+<a class="sourceLine" id="cb1-24" title="24">        <span class="co"># Rotate the left and up vectors accordingly</span></a>
+<a class="sourceLine" id="cb1-25" title="25">        new_turtle.step_size <span class="op">=</span> c <span class="op">*</span> new_direction.length</a>
+<a class="sourceLine" id="cb1-26" title="26"></a>
+<a class="sourceLine" id="cb1-27" title="27">        new_turtles.append(new_turtle)</a>
+<a class="sourceLine" id="cb1-28" title="28">        new_data.append(node)</a></code></pre></div>
+<p>It is important to set the step size for the turtle, to reinforce it’s path, even if it is not uniformly distributed, and it is also quite useful to return the step size back to the original after there are no more children for the turtle to follow.</p>
 <p>The oddly curved palm tree in the image was generated using pretty much the same L-System as the one in <a href="#palm-trees">the palm tree section</a>:</p>
 <p><span class="math display">\[\begin{array}{cclclr}
 \omega &amp; : &amp; \mathtt{TC_\mathrm{number\ of\ leaves}} \\
@@ -578,70 +592,70 @@ p_3    &amp; : &amp; \mathtt{l} &amp; \xrightarrow{}     &amp; \mathtt{\&amp;F[+
 <table>
 <thead>
 <tr class="header">
-<th align="left">Symbol</th>
-<th align="right">Action</th>
+<th style="text-align: left;">Symbol</th>
+<th style="text-align: right;">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>F</code></td>
-<td align="right">Walk forward, drawing the path</td>
+<td style="text-align: left;"><code>F</code></td>
+<td style="text-align: right;">Walk forward, drawing the path</td>
 </tr>
 <tr class="even">
-<td align="left"><code>f</code></td>
-<td align="right">Walk forward, but don't draw the path</td>
+<td style="text-align: left;"><code>f</code></td>
+<td style="text-align: right;">Walk forward, but don’t draw the path</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>+</code></td>
-<td align="right">Yaw left</td>
+<td style="text-align: left;"><code>+</code></td>
+<td style="text-align: right;">Yaw left</td>
 </tr>
 <tr class="even">
-<td align="left"><code>-</code></td>
-<td align="right">Yaw right</td>
+<td style="text-align: left;"><code>-</code></td>
+<td style="text-align: right;">Yaw right</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&amp;</code></td>
-<td align="right">Pitch down</td>
+<td style="text-align: left;"><code>&amp;</code></td>
+<td style="text-align: right;">Pitch down</td>
 </tr>
 <tr class="even">
-<td align="left"><code>^</code></td>
-<td align="right">Pitch up</td>
+<td style="text-align: left;"><code>^</code></td>
+<td style="text-align: right;">Pitch up</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>\</code></td>
-<td align="right">Roll left</td>
+<td style="text-align: left;"><code>\</code></td>
+<td style="text-align: right;">Roll left</td>
 </tr>
 <tr class="even">
-<td align="left"><code>/</code></td>
-<td align="right">Roll right</td>
+<td style="text-align: left;"><code>/</code></td>
+<td style="text-align: right;">Roll right</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>[</code></td>
-<td align="right">Push turtle to stack</td>
+<td style="text-align: left;"><code>[</code></td>
+<td style="text-align: right;">Push turtle to stack</td>
 </tr>
 <tr class="even">
-<td align="left"><code>]</code></td>
-<td align="right">Pop turtle from stack</td>
+<td style="text-align: left;"><code>]</code></td>
+<td style="text-align: right;">Pop turtle from stack</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>T</code></td>
-<td align="right">Dummy symbol</td>
+<td style="text-align: left;"><code>T</code></td>
+<td style="text-align: right;">Dummy symbol</td>
 </tr>
 <tr class="even">
-<td align="left"><code>C</code></td>
-<td align="right">Dummy symbol</td>
+<td style="text-align: left;"><code>C</code></td>
+<td style="text-align: right;">Dummy symbol</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>L</code></td>
-<td align="right">Dummy symbol</td>
+<td style="text-align: left;"><code>L</code></td>
+<td style="text-align: right;">Dummy symbol</td>
 </tr>
 <tr class="even">
-<td align="left"><code>l</code></td>
-<td align="right">Dummy symbol</td>
+<td style="text-align: left;"><code>l</code></td>
+<td style="text-align: right;">Dummy symbol</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>?</code></td>
-<td align="right">Consider the data to guide the turtle in the input's path</td>
+<td style="text-align: left;"><code>?</code></td>
+<td style="text-align: right;">Consider the data to guide the turtle in the input’s path</td>
 </tr>
 </tbody>
 </table>
