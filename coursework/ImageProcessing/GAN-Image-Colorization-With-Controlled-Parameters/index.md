@@ -1,3 +1,7 @@
+---
+title: dccsillag's homepage
+---
+
 # GAN Image Colorization with Controlled Parameters
 
 Based off of [github.com/ImagingLab/Colorizing-with-GANs](https://github.com/ImagingLab/Colorizing-with-GANs)

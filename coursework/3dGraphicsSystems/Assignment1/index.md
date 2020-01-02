@@ -1,4 +1,9 @@
-# Various Modelling Techniques Implemented in Blender
+---
+title: dccsillag's homepage
+---
+
+Various Modelling Techniques Implemented in Blender
+===
 
 This is my solution to the first assignment of the course ["Sistemas Gráficos 3D"](http://lvelho.impa.br/i3d19/). The code can be found in
 [dccsillag/blender-modelling-techniques](https://github.com/dccsillag/blender-modelling-techniques).

@@ -1,3 +1,7 @@
+---
+title: dccsillag's homepage
+---
+
 S3D: Assignment #2
 ===
 
