@@ -1,0 +1,29 @@
+/*
+ * vim: fdm=syntax sw=2
+ */
+
+@import "pandoc.css";
+
+:root {
+  --header-color-bg: rgb(107, 169, 0);
+  --header-color-fg1: white;
+  --header-color-fg2: #EEEEEE;
+}
+
+header {
+  margin: -2em;
+  margin-top: -2em;
+  margin-bottom: 2em;
+  padding-top: 2em;
+  padding-bottom: 0.1em;
+  background-color: var(--header-color-bg);
+  text-align: center;
+}
+
+header > h1 {
+  color: var(--header-color-fg1);
+}
+
+header > p {
+  color: var(--header-color-fg2);
+}

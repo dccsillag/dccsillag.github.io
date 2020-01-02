@@ -1,0 +1,13 @@
+/*
+ * vim: fdm=syntax sw=2
+ */
+
+@import "pandoc.css";
+
+:root {
+  --header-color: coral;
+}
+
+h1 {
+  background-color: var(--header-color);
+}
