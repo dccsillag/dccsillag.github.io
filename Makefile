@@ -19,4 +19,4 @@ clean:
 
 %.html: %.md
 	@echo "pandoc: $< -> $@"
-	@pandoc $(PANDOC_OPTIONS) --css $(shell realpath --relative-to="$(@D)" $(BASE_STYLE)) --resource-path $(@D):`pwd` -o $@ $<
+	@pandoc --css $(shell realpath --relative-to="$(@D)" $(BASE_STYLE)) --resource-path $(@D):`pwd` $(PANDOC_OPTIONS) -o $@ $<
